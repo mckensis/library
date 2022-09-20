@@ -8,12 +8,33 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header><h1>Library</h1></header>
-    <main>
-        <section class="mainLibrary">
-            <button class="addBook">Add book</button>
-        </section>
-        <div class="newBook"></div>
-    </main>
+    <header>
+        <h1>Library</h1>
+    </header>
+    <button class="addBookButton">Add book</button>
+    <section class="libraryDisplay">
+        <article class="libraryHeadings">
+            <h2>Book Title</h2>
+            <h2>Author</h2>
+            <h2>Page Count</h2>
+        </article>
+    </section>
+    <div class="newBookPopup">
+        <form class="newBookForm">
+            <legend>Add a Book</legend>
+            <label for="bookTitle">Title</label>
+            <input type="text" id="bookTitle">
+            <label for="bookAuthor">Author</label>
+            <input type="text" id="bookAuthor">
+            <label for="bookPages">Pages</label>
+            <input type="number" id="bookPages" min="1" max="9999">
+            <label for="bookRead">Read</label>
+            <input type="checkbox" id="bookRead">
+            <div class="formButtons">
+                <button class="cancelButton">Cancel</button>
+                <button class="saveButton">Save</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

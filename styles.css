@@ -5,64 +5,161 @@
 }
 
 body {
-    width: 100vw;
-    height: 100vh;
     display: grid;
+    height: 100vh;
     place-items: center;
-    place-content: center;
     grid-auto-flow: row;
-    grid-template-rows: 100px 1fr;
-    background-color: red;
+    grid-template-rows: repeat(2, max-content) 1fr;
     position: relative;
-    gap: 1.5rem;
 }
 
 header {
-    display: grid;
-    font-size: 2rem;
-}
-
-main {
-    width: 100vw;
-    height: 100%;
-    background-color: yellow;
-}
-
-section.mainLibrary {
+    font-size: 4rem;
     background-color: orange;
-    display: grid;
-    gap: 1rem;
-    height: 100%;
-    grid-auto-flow: column;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-template-rows: 50px repeat(auto-fit, minmax(200px, 300px));
-    grid-auto-rows: minmax(200px, 300px)
+    width: 100%;
+    text-align: center;
+    padding-bottom: 1rem;
 }
 
-.addBook {
+section.libraryDisplay {
     display: grid;
-    grid-row: 1;
+    place-items: center;
+    padding-top: 2rem;
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 2rem;
+    grid-template-rows: max-content;
+    grid-auto-rows: max-content;
+}
+
+section.libraryDisplay .libraryHeadings {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 30rem 20rem 10rem;
+    grid-auto-flow: column;
+    font-size: 1.9rem;
+    padding-bottom: 1.5rem;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+}
+
+.libraryHeadings :first-child {
+    justify-self: left;
+}
+
+
+.libraryHeadings :nth-child(2),
+.libraryHeadings :nth-child(3) {
+    justify-self: center;
+}
+
+.addBookButton {
+    display: grid;
+    grid-row: 2;
     width: 20rem;
-    height: 2rem;
+    height: 3rem;
+    margin: 1rem;
     place-self: center;
     place-items: center;
 }
 
-.book {
-    margin: 2rem;
+.bookCard {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 30rem 20rem 10rem;
+    border-bottom: 1px solid black;
+    text-align: center;
     background-color: #fff;
-    font-size: 2rem;
     display: grid;
     place-content: center;
     place-items: center;
+    margin-bottom: 0.5rem;
 }
 
-.newBook {
-    visibility: hidden;
+.bookCard .readBook {
+    padding: 1rem 0rem 1rem 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1rem;
+    background-color: red;
+    color: white;
+}
+.bookCard h2 {
+    font-size: 1.8rem;
+    justify-self: left;
+    padding: 1rem 0rem;
+}
+
+.bookCard p {
+    font-size: 1.5rem;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
     position: absolute;
     top: 0;
     left: 0;
-    width: 5rem;
-    height: 10rem;
-    background-color: blue;
+    z-index: 1;
+}
+
+.newBookPopup {
+    visibility: hidden;
+    position: absolute;
+    place-self: center;
+    width: 50rem;
+    height: auto;
+    background-color: white;
+    border: 5px solid black;
+    border-radius: 2rem;
+    padding: 2rem;
+    box-shadow: 0 0 1rem black;
+    z-index: 2;
+}
+
+.newBookForm {
+    display: grid;
+    height: 100%;
+    grid-auto-flow: row;
+    grid-auto-rows: max-content;
+    grid-template-columns: 100px 1fr;
+    font-size: 1.5rem;
+    gap: 1rem;
+}
+
+.newBookForm input {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+.newBookForm legend {
+    font-size: 2rem;
+    text-align: center;
+    place-self: center;
+    align-self: center;
+    grid-column: 1 / -1;
+    padding: 1rem;
+}
+
+.formButtons {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.formButtons :last-child {
+    justify-self: end;
+}
+
+button {
+}
+
+.newBookForm button {
+    padding: 1rem;
+    width: 10rem;
+    border-radius: 2rem;
+    font-size: 1.5rem;
 }
