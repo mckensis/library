@@ -7,15 +7,18 @@
 body {
     display: grid;
     height: 100vh;
-    place-items: center;
     grid-auto-flow: row;
-    grid-template-rows: repeat(2, max-content) 1fr;
+    gap: 1rem;
+    grid-template-rows: max-content 50px 1fr;
     position: relative;
+    cursor:default;
+    color: #272932;
 }
 
 header {
     font-size: 4rem;
-    background-color: orange;
+    background-color: #272932;
+    color: #E7ECEF;
     width: 100%;
     text-align: center;
     padding-bottom: 1rem;
@@ -36,13 +39,13 @@ section.libraryDisplay {
 section.libraryDisplay .libraryHeadings {
     display: grid;
     width: 100%;
-    grid-template-columns: 1fr 30rem 20rem 10rem;
+    grid-template-columns: 1fr 30rem 20rem 15rem 10rem;
     grid-auto-flow: column;
     font-size: 1.9rem;
-    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
     position: sticky;
     top: 0;
-    background-color: #fff;
+    background-color: white;
 }
 
 .libraryHeadings :first-child {
@@ -58,9 +61,10 @@ section.libraryDisplay .libraryHeadings {
 .addBookButton {
     display: grid;
     grid-row: 2;
-    width: 20rem;
-    height: 3rem;
-    margin: 1rem;
+    width: 15rem;
+    height: 4rem;
+    border-radius: 2rem;
+    font-size: 1.5rem;
     place-self: center;
     place-items: center;
 }
@@ -69,10 +73,9 @@ section.libraryDisplay .libraryHeadings {
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: 1fr 30rem 20rem 10rem;
-    border-bottom: 1px solid black;
+    grid-template-columns: 1fr 30rem 20rem 15rem 10rem;
+    border-bottom: 1px solid #272932;
     text-align: center;
-    background-color: #fff;
     display: grid;
     place-content: center;
     place-items: center;
@@ -80,11 +83,12 @@ section.libraryDisplay .libraryHeadings {
 }
 
 .bookCard .readBook {
-    padding: 1rem 0rem 1rem 1rem;
+    padding: 1rem 0rem 1rem 0.5rem;
     text-transform: uppercase;
-    letter-spacing: 1rem;
-    background-color: red;
-    color: white;
+    letter-spacing: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: #7272AB;
+    color: #E7ECEF;
 }
 .bookCard h2 {
     font-size: 1.8rem;
@@ -99,7 +103,7 @@ section.libraryDisplay .libraryHeadings {
 .overlay {
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.9);
     position: absolute;
     top: 0;
     left: 0;
@@ -112,7 +116,7 @@ section.libraryDisplay .libraryHeadings {
     place-self: center;
     width: 50rem;
     height: auto;
-    background-color: white;
+    background-color: #E7ECEF;
     border: 5px solid black;
     border-radius: 2rem;
     padding: 2rem;
@@ -154,12 +158,47 @@ section.libraryDisplay .libraryHeadings {
     justify-self: end;
 }
 
-button {
-}
-
 .newBookForm button {
-    padding: 1rem;
-    width: 10rem;
+    height: 4rem;
+    width: 15rem;
     border-radius: 2rem;
     font-size: 1.5rem;
+}
+
+button {
+    cursor: pointer;
+    background-color: #7272AB;
+    color: #E7ECEF;
+    font-weight: bold;
+}
+
+.delButton,
+.readButton {
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 0.5rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    grid-column: 5;
+    background-color: #E7ECEF;
+}
+
+.readButton {
+    background-image: url("icons/read.png");
+    grid-column: 1;
+}
+
+.delButton {
+    background-image: url("icons/bin.png");
+    grid-column: 2;
+}
+
+.buttonDiv {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 0.5rem;
+}
+
+.toggled {
+    background-color: #7272AB;
 }
